@@ -3,8 +3,10 @@ services:
   bedrock:
     image: minecraft-bedrock-playit-gg
     command: /opt/bedrock/bedrock_server
+#     ports: [19132:19132/udp]
     volumes:
       - ./worlds:/opt/bedrock/worlds
+#       - ./server.properties:/opt/bedrock/server.properties
   playit:
     image: minecraft-bedrock-playit-gg
     command: playit
