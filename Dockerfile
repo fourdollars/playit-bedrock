@@ -2,6 +2,7 @@
 FROM ubuntu:focal
 ENV DEBIAN_FRONTEND=noninteractive
 ENV BEDROCK_VERSION=1.19.20.02
+WORKDIR /opt/bedrock
 RUN <<EOF
   apt-get update
   apt-get full-upgrade --yes

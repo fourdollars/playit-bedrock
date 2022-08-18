@@ -1,4 +1,4 @@
-# Setup your own Minecraft bedrock server with https://playit.gg
+# Setup Minecraft bedrock server with https://playit.gg
 
 ## Build the Docker image
 ```

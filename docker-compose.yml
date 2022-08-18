@@ -2,7 +2,7 @@ version: '3'
 services:
   bedrock:
     image: minecraft-bedrock-playit-gg
-    command: /bedrock_server
+    command: /opt/bedrock/bedrock_server
   playit:
     image: minecraft-bedrock-playit-gg
     command: playit
