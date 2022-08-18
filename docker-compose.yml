@@ -3,6 +3,8 @@ services:
   bedrock:
     image: minecraft-bedrock-playit-gg
     command: /opt/bedrock/bedrock_server
+    volumes:
+      - ./worlds:/opt/bedrock/worlds
   playit:
     image: minecraft-bedrock-playit-gg
     command: playit

@@ -15,6 +15,10 @@ docker run -it --rm -v $PWD/etc/playit:/etc/playit minecraft-bedrock-playit-gg p
 docker-compose up -d
 ```
 
-## TODO
-
-* Keep bedrock data
+## Check logs
+```
+docker-compose logs bedrock
+docker-compose logs --follow bedrock
+docker-compose logs playit
+docker-compose logs --follow playit
+```
