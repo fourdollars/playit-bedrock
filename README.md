@@ -22,3 +22,9 @@ docker-compose logs --follow bedrock
 docker-compose logs playit
 docker-compose logs --follow playit
 ```
+
+## Debug
+```
+docker-compose exec bedrock /bin/bash
+docker-compose exec playit /bin/bash
+```
