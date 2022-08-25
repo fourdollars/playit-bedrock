@@ -14,6 +14,10 @@ docker run -it --rm -v $PWD/etc/playit:/etc/playit minecraft-bedrock-playit-gg p
 ```
 docker-compose up -d
 ```
+or
+```
+docker compose up -d
+```
 
 ## Check logs
 ```
