@@ -23,12 +23,26 @@ docker compose up -d
 ```
 docker-compose logs bedrock
 docker-compose logs --follow bedrock
-docker-compose logs playit
-docker-compose logs --follow playit
 ```
+
+## Attach the console
+```
+docker attach docker-bedrock-server-1
+docker attach docker-bedrock-playit-1
+```
+> *CTRL-p* *CTRL-q* key sequence to detach
 
 ## Debug
 ```
 docker-compose exec bedrock /bin/bash
 docker-compose exec playit /bin/bash
+```
+
+## Shutdown bedrock server and playit
+```
+docker-compose down
+```
+or
+```
+docker compose down
 ```
