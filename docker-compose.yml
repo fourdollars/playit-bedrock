@@ -14,6 +14,6 @@ services:
     command: playit
     stdin_open: true
     tty: true
-    network_mode: service:bedrock
+    network_mode: service:server
     volumes:
       - ./etc/playit:/etc/playit
