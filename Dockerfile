@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:focal
 ENV DEBIAN_FRONTEND=noninteractive
-ENV BEDROCK_VERSION=1.19.21.01
+ENV BEDROCK_VERSION=1.19.22.01
 WORKDIR /opt/bedrock
 RUN <<EOF
   apt-get update
