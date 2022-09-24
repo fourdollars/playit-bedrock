@@ -1,13 +1,13 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:focal
 ENV DEBIAN_FRONTEND=noninteractive
-ENV BEDROCK_VERSION=1.19.22.01
 WORKDIR /opt/bedrock
 RUN <<EOF
   apt-get update
   apt-get full-upgrade --yes
   apt-get install --yes ca-certificates curl gnupg unzip
-  curl -SsL https://minecraft.azureedge.net/bin-linux/bedrock-server-${BEDROCK_VERSION}.zip > bedrock-server.zip
+  BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64)' | grep -o "https://.*linux.*bedrock-server-.*.zip")
+  curl -sSL "${BEDROCK}" > bedrock-server.zip
   unzip bedrock-server.zip
   rm bedrock-server.zip
   mkdir -p /etc/apt/keyrings/
