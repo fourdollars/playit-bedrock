@@ -6,7 +6,7 @@ RUN <<EOF
   apt-get update
   apt-get full-upgrade --yes
   apt-get install --yes ca-certificates curl gnupg unzip
-  BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64)' | grep -o "https://.*linux.*bedrock-server-.*.zip")
+  BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64)' | grep -o "https://.*/bin-linux/.*bedrock-server-.*.zip")
   curl -sSL "${BEDROCK}" > bedrock-server.zip
   unzip bedrock-server.zip
   rm bedrock-server.zip
@@ -15,4 +15,5 @@ RUN <<EOF
   echo "deb [signed-by=/etc/apt/keyrings/playit.gpg] https://playit-cloud.github.io/ppa/data ./" > /etc/apt/sources.list.d/playit-cloud.list
   apt-get update
   apt-get install --yes playit
+  echo "${BEDROCK} with $(dpkg-query -W playit)"
 EOF

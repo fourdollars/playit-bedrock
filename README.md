@@ -2,7 +2,7 @@
 
 ## Build the Docker image
 ```
-DOCKER_BUILDKIT=1 docker build . -t minecraft-bedrock-playit-gg
+DOCKER_BUILDKIT=1 BUILDKIT_PROGRESS=plain docker build . -t minecraft-bedrock-playit-gg
 ```
 
 ## Generate etc/playit/playit.toml
