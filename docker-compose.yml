@@ -1,7 +1,7 @@
 version: '3'
 services:
   server:
-    image: minecraft-bedrock-playit-gg
+    image: ghcr.io/fourdollars/playit-bedrock
     command: /opt/bedrock/bedrock_server
 #     ports: [19132:19132/udp]
     stdin_open: true
@@ -10,7 +10,7 @@ services:
       - ./worlds:/opt/bedrock/worlds
 #       - ./server.properties:/opt/bedrock/server.properties
   playit:
-    image: minecraft-bedrock-playit-gg
+    image: ghcr.io/fourdollars/playit-bedrock
     command: playit
     stdin_open: true
     tty: true
