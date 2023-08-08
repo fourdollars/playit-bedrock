@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1.4
 FROM ubuntu:focal
+LABEL org.opencontainers.image.source https://github.com/fourdollars/playit-bedrock
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /opt/bedrock
 RUN <<EOF
