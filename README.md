@@ -2,12 +2,12 @@
 
 ## Build the Docker image
 ```
-DOCKER_BUILDKIT=1 BUILDKIT_PROGRESS=plain docker build . -t minecraft-bedrock-playit-gg --no-cache
+DOCKER_BUILDKIT=1 BUILDKIT_PROGRESS=plain docker build . -t playit-bedrock --no-cache
 ```
 
 ## Generate etc/playit/playit.toml
 ```
-docker run -it --rm -v $PWD/etc/playit:/etc/playit minecraft-bedrock-playit-gg playit
+docker run -it --rm -v $PWD/etc/playit:/etc/playit playit-bedrock playit
 ```
 
 ## Run bedrock server with playit
