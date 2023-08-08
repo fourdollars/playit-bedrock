@@ -15,5 +15,6 @@ RUN <<EOF
   echo "deb [signed-by=/etc/apt/keyrings/playit.gpg] https://playit-cloud.github.io/ppa/data ./" > /etc/apt/sources.list.d/playit-cloud.list
   apt-get update
   apt-get install --yes playit
+  rm -fr /var/lib/apt
   echo "${BEDROCK} with $(dpkg-query -W playit)"
 EOF
