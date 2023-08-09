@@ -1,6 +1,7 @@
 version: '3'
 services:
-  server:
+  bedrock:
+    container_name: bedrock
     image: ghcr.io/fourdollars/playit-bedrock
     command: /opt/bedrock/bedrock_server
 #     ports: [19132:19132/udp]
@@ -9,11 +10,22 @@ services:
     volumes:
       - ./worlds:/opt/bedrock/worlds
 #       - ./server.properties:/opt/bedrock/server.properties
+
   playit:
+    container_name: playit
+    depends_on: [bedrock]
+    restart: unless-stopped
     image: ghcr.io/fourdollars/playit-bedrock
     command: playit
     stdin_open: true
     tty: true
-    network_mode: service:server
+    network_mode: service:bedrock
     volumes:
       - ./etc/playit:/etc/playit
+#   watchtower:
+#     container_name: watchtower
+#     image: containrrr/watchtower
+#     volumes:
+#       - /var/run/docker.sock:/var/run/docker.sock
+#       - $HOME/.docker/config.json:/config.json
+#     command: --cleanup --interval 60 --rolling-restart --stop-timeout 30s bedrock playit
