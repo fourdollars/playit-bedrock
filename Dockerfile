@@ -10,7 +10,7 @@ RUN <<EOF
   BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64)' | grep -o "https://.*/bin-linux/.*bedrock-server-.*.zip")
   curl -sSL "${BEDROCK}" > bedrock-server.zip
   unzip bedrock-server.zip
-  rm bedrock-server.zip
+  rm -f bedrock-server.zip bedrock_server_symbols.debug
   mkdir -p /etc/apt/keyrings/
   curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor -o /etc/apt/keyrings/playit.gpg
   echo "deb [signed-by=/etc/apt/keyrings/playit.gpg] https://playit-cloud.github.io/ppa/data ./" > /etc/apt/sources.list.d/playit-cloud.list
