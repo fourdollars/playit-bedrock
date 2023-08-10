@@ -1,18 +1,23 @@
-# Setup Minecraft bedrock server with https://playit.gg
+# Setup [Minecraft bedrock server](https://www.minecraft.net/en-us/download/server/bedrock) with https://playit.gg
 
 ## Run bedrock server with playit
 ```
-docker-compose up -d
+docker-compose up -d --force-recreate
 ```
 or
 ```
-docker compose up -d
+docker compose up -d --force-recreate
 ```
 
 ## Check logs
 ```
 docker-compose logs bedrock
 docker-compose logs --follow bedrock
+```
+
+## Check local IP address
+```
+docker inspect bedrock
 ```
 
 ## Attach the console
@@ -26,6 +31,7 @@ docker attach playit  # You need to attach playit to setup it.
 ```
 docker-compose exec bedrock /bin/bash
 docker-compose exec playit /bin/bash
+docker image ls -a --no-trunc; docker-compose ps -a; docker inspect bedrock playit | jq -r '.[]|.Image+" "+.Name'; docker container ls -a #debug
 ```
 
 ## Shutdown bedrock server and playit
