@@ -7,8 +7,8 @@ RUN <<EOF
   apt-get update
   apt-get full-upgrade --yes
   apt-get install --yes ca-certificates curl gnupg unzip
-  BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64)' | grep -o "https://.*/bin-linux/.*bedrock-server-.*.zip")
-  curl -sSL "${BEDROCK}" > bedrock-server.zip
+  BEDROCK=$(curl -fsSL 'https://www.minecraft.net/en-us/download/server/bedrock' -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36' | grep -o "https://.*/bin-linux/.*bedrock-server-.*.zip")
+  curl -fsSL "${BEDROCK}" -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36' --output bedrock-server.zip
   unzip bedrock-server.zip
   rm -f bedrock-server.zip bedrock_server_symbols.debug
   mkdir -p /etc/apt/keyrings/
